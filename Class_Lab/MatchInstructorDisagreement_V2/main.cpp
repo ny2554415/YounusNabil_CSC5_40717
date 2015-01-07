@@ -20,9 +20,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
 //Declare variables
-short a,b,c;
+float a,b,c;
 //Prompt for a and b
-cout<<"Input 2 short values"<<endl;
+cout<<"Input 2 float values"<<endl;
 cin>>a>>b;
 //Sum the values
 c=a+b;
