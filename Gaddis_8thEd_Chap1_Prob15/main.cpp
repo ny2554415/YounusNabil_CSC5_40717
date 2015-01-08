@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Nabil Younus
- * Purpose: Triangle Pattern (Gaddis_8thEd_Chap2_Prob15)
+ * Purpose: Triangle Pattern (Gaddis_8thEd_Chap1_Prob15)
  * Created on January 8, 2015, 11:36 AM
  */
 

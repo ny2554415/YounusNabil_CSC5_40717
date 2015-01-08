@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
  * Author: Nabil Younus
- * Purpose: Triangle Pattern (Gaddis_8thEd_Chap2_Prob15)
- * Created on January 8, 2015, 11:36 AM
+ * Purpose: Triangle Pattern (Gaddis_8thEd_Chap1_Prob15)
+ * Created on January 8, 2015, 11:45 AM
  */
 
 //Global Libraries
@@ -20,11 +20,14 @@ int main(int argc, char** argv) {
 
     //Declare variables
     //Output the results
-    cout<<"This program will display the character in a triangular patter"<<endl;
+    cout<<"This program will display the character in a diamond patter"<<endl;
     cout<<" "<<" "<<" "<<"*"<<" "<<" "<<" "<<endl;
     cout<<" "<<" "<<"*"<<"*"<<"*"<<" "<<" "<<endl;
     cout<<" "<<"*"<<"*"<<"*"<<"*"<<"*"<<" "<<endl;
     cout<<"*"<<"*"<<"*"<<"*"<<"*"<<"*"<<"*"<<endl;
+    cout<<" "<<"*"<<"*"<<"*"<<"*"<<"*"<<" "<<endl;
+    cout<<" "<<" "<<"*"<<"*"<<"*"<<" "<<" "<<endl;
+    cout<<" "<<" "<<" "<<"*"<<" "<<" "<<" "<<endl;
     return 0;
 }
 
