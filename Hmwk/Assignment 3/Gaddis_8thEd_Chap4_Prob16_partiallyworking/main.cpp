@@ -78,7 +78,10 @@ int main(int argc, char** argv) {
                                 cout<<"Second = "<<rnnr2<<"."<<endl;
                                 cout<<"Third = "<<rnnr3<<"."<<endl;    
                             }        
-                                         
+                            else
+                            {
+                                cout<<"Your input is invalid"<<endl;
+                            }    
         
                         }}}}}            
                         
