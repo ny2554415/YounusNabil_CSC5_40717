@@ -16,18 +16,17 @@ using namespace std;
 
 //Function Prototype
 int nFactrl(int);
-float approxEx(float);
 
 //Execution begins here!
 int main(int argc, char** argv) {
     //Declare variables
-    float x;
+    float x,exactEx,approxEx;
     //Prompt the user for the power of e^x
     cout<<"What x in e^x would you like to use?"<<endl;
     cin>>x;
     //Compare the results
-    cout<<"Approximate e^x = "<<approxEx(x)<<endl;
-    cout<<"Exact e^x       = "<<exp(x)<<endl;
+    cout<<"Approximate e^x = "<<approxEx<<endl;
+    cout<<"Exact e^x       = "<<exactEx<<endl;
     //Exit Stage right
     return 0;
 }
