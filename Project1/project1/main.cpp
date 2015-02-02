@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Nabil Younus
- * Purpose: Project (Who wants to be a Millionare)
+ * Purpose: Project (Who wants to be a Millionaire)
  * Created on February 1, 2015, 2:10 PM
  */
 //System Libraries
@@ -19,14 +19,14 @@ using namespace std;
 
 int main(int argc, char** argv) {
     //Declare variables
-    char answer1,answer2,answer3,answer4,answer5;//to hold answers
-    char answer6,answer7,answer8,answer9,answer10;//to hold answers
-    char A,a;//choice A 
-    char B,b;//choice B
-    char C,c;//choice C
-    char D,d;//choice D
+    char answer;
+    char choiceA='A';//choice A 
+    char choiceB='B';//choice B 
+    char choiceC='C';//choice C 
+    char choiceD='D';//choice D 
     int mChoice;//Menu choice
     string name;//name of contestant
+   
     
     
     bool Gamebgn = false;//starting game with while
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
     cout<<"Choose what you wish to do"<<endl;
     cout<<"------------"<<endl;
     cout<<"1.Start playing game"<<endl;
-    cout<<"2.Rules"<<endl;
+    cout<<"2.Rules then Start"<<endl;
     cout<<"3.Quit game"<<endl;
     cout<<"------------"<<endl;
     cin>>mChoice;
@@ -72,6 +72,8 @@ int main(int argc, char** argv) {
         case 2:
             cout<<" RULES "<<endl;
             ///enter a file of Rules here
+            
+            Gamebgn=true;
             break;
         case 3:    
             cout<<"You have chosen to quit"<<endl;
@@ -81,7 +83,7 @@ int main(int argc, char** argv) {
          default:
             cout<<"Invalid option "<<endl;        
         }
-    while(Gamebgn=true){ //game starts here
+    if (Gamebgn=true){ //game starts here
         // the questions
         cout<<"Your first question"<<endl;
         cout<<"-------------------"<<endl;
@@ -89,10 +91,10 @@ int main(int argc, char** argv) {
         cout<<"A. Bill Gates       C. Bjarne Stroustrup"<<endl;
         cout<<"B. Dr. Mark E.Lehr  D. James Gosling"<<endl;
         cout<<"---------------------"<<endl;
-        cout<<"Choose Answer: ";
-        cin>>answer1;
-    
-        if((answer1==c)||(answer1=C)){
+        cout<<"Your Choice: ";
+        cin>>answer;
+        
+        if((toupper(answer))==choiceC){
             cout<<"Correct Answer, you have won $1000"<<endl;
             cout<<"Your next question"<<endl;
             cout<<"-------------------"<<endl;
@@ -100,10 +102,10 @@ int main(int argc, char** argv) {
             cout<<"A. Gates  C. Doors"<<endl;
             cout<<"C. Macs   D. Windows"<<endl;
             cout<<"--------------------"<<endl;
-            cout<<"Choose Answer: ";
-            cin>>answer2;
+            cout<<"Your Choice: ";
+            cin>>answer;
         
-            if((answer2=d)||(answer2=D)){
+            if((toupper(answer))==choiceD){
                 cout<<"Correct Answer, you have won $2500"<<endl;
                 cout<<"Your next question"<<endl;
                 cout<<"-------------------"<<endl;
@@ -111,10 +113,10 @@ int main(int argc, char** argv) {
                 cout<<"A. Canada  C. China"<<endl;
                 cout<<"B. India   D. United States of America"<<endl;
                 cout<<"------------------------------------"<<endl;
-                cout<<"Choose Answer: ";
-                cin>>answer3;
+                cout<<"Your Choice: ";
+                cin>>answer;
                 
-                if((answer3==a)||(answer3==A)){
+                if((toupper(answer))==choiceA){
                     cout<<"Correct Answer, you have won $10,000"<<endl;
                     cout<<"Your next question"<<endl;
                     cout<<"-------------------"<<endl;
@@ -122,10 +124,10 @@ int main(int argc, char** argv) {
                     cout<<"A. New England Patriots   C. LA Kings"<<endl;
                     cout<<"B. Miami Heat             D. Miami Heat"<<endl;
                     cout<<"-------------------------------------"<<endl;
-                    cout<<"Choose Answer: ";
-                    cin>>answer4;
-                    
-                    if((answer4==a)||(answer4==A)){
+                    cout<<"Your Choice: ";
+                    cin>>answer;
+
+                    if((toupper(answer))==choiceA){
                         cout<<"Correct Answer, you have won $25,000"<<endl;
                         cout<<"Your next question"<<endl;
                         cout<<"-------------------"<<endl;
@@ -133,10 +135,10 @@ int main(int argc, char** argv) {
                         cout<<"A. Steven Hawking    C. Michael Faraday"<<endl;
                         cout<<"B. Albert Einstein   D. Bill Nye"<<endl;
                         cout<<"----------------------------------"<<endl;
-                        cout<<"Choose Answer: ";
-                        cin>>answer5;
-                        
-                        if((answer5==b)||(answer5==B)){
+                        cout<<"Your Choice: ";
+                        cin>>answer;
+
+                        if((toupper(answer))==choiceB){
                             cout<<"Correct Answer, you have won $50,000"<<endl;
                             cout<<"Your next question"<<endl;
                             cout<<"-------------------"<<endl;
@@ -144,10 +146,10 @@ int main(int argc, char** argv) {
                             cout<<"A. Bee     C. Hockey"<<endl;
                             cout<<"B. Skiing  D. Cricket"<<endl;
                             cout<<"----------------------------------"<<endl;
-                            cout<<"Choose Answer: ";
-                            cin>>answer6;
-                            
-                            if((answer6==d)||(answer6==D)){
+                            cout<<"Your Choice: ";
+                            cin>>answer;
+
+                            if((toupper(answer))==choiceD){
                                 cout<<"Correct Answer, you have won $75,000"<<endl;
                                 cout<<"Your next question"<<endl;
                                 cout<<"-------------------"<<endl;
@@ -155,10 +157,10 @@ int main(int argc, char** argv) {
                                 cout<<"A. Great Britain               C. Italy"<<endl;
                                 cout<<"B. United States of America    D. Germany"<<endl;
                                 cout<<"----------------------------------"<<endl;
-                                cout<<"Choose Answer: ";
-                                cin>>answer7;
-                                
-                                if((answer7==a)||(answer7==A)){
+                                cout<<"Your Choice: ";
+                                cin>>answer;
+
+                                if((toupper(answer))==choiceA){
                                     cout<<"Correct Answer, you have won $100,000"<<endl;
                                     cout<<"Your next question"<<endl;
                                     cout<<"-------------------"<<endl;
@@ -166,10 +168,10 @@ int main(int argc, char** argv) {
                                     cout<<"A. Bosnia   C. Poland"<<endl;
                                     cout<<"B. Germany  D. Austria"<<endl;
                                     cout<<"----------------------------------"<<endl;
-                                    cout<<"Choose Answer: ";
-                                    cin>>answer8;
-                                    
-                                    if((answer8=b)||(answer8==B)){
+                                    cout<<"Your Choice: ";
+                                    cin>>answer;
+
+                                    if((toupper(answer))==choiceB){
                                         cout<<"Correct Answer, you have won $250,000"<<endl;
                                         cout<<"Your next question"<<endl;
                                         cout<<"-------------------"<<endl;
@@ -177,101 +179,111 @@ int main(int argc, char** argv) {
                                         cout<<"A. South Africa   C. Brazil"<<endl;
                                         cout<<"B. Argentina      D. China "<<endl;
                                         cout<<"----------------------------------"<<endl;
-                                        cout<<"Choose Answer: ";
-                                        cin>>answer9;
-                                        
-                                        if((answer9==c)||(answer9==C)){
+                                        cout<<"Your Choice: ";
+                                        cin>>answer;
+
+                                        if((toupper(answer))==choiceC){
                                             cout<<"Correct Answer, you have won $500,000"<<endl;
                                             cout<<"Your last question for the Million Dollars"<<endl;
                                             cout<<"-------------------"<<endl;
                                             cout<<question10<<endl;
-                                            cout<<"A. New Jersey     B. New London"<<endl;
-                                            cout<<"C. New Amsterdam  D. York "<<endl;
+                                            cout<<"A. New Jersey    C. New Amsterdam"<<endl;
+                                            cout<<"B. New London    D. York "<<endl;
                                             cout<<"----------------------------------"<<endl;
-                                            cout<<"Choose Answer: ";
-                                            cin>>answer10;
-                                            
-                                            if((answer10==c)||(answer10==C)){
+                                            cout<<"Your Choice: ";
+                                            cin>>answer;
+
+                                            if((toupper(answer))==choiceC){
                                                 cout<<"Correct Answer"<<endl;
                                                 cout<<"Congratulations "<<name<<", You have won 1 MILLION DOLLARS."<<endl;
                                                 cout<<"Thank you for playing the game, Enjoy your 1 million Dollars."<<endl;
                                                 cout<<"Invest wisely and have a good day"<<endl;
-                                                Gamebgn = false;
+                                                Gamebgn=false;
                                             }
                                             else{
                                                 cout<<"Sorry wrong answer"<<endl;
+                                                cout<<"The correct answer was New Amsterdam. "<<endl;
                                                 cout<<"You win $500,000"<<endl;
                                                 cout<<"Thank you for playing the game"<<endl;
                                                 cout<<"Invest wisely and have a good day"<<endl;
-                                                Gamebgn = false;
+                                                Gamebgn=false;
                                             }
                                         }
                                         else{
                                             cout<<"Sorry wrong answer"<<endl;
+                                            cout<<"The correct answer was Brazil. "<<endl;
                                             cout<<"You win $250,000"<<endl;
                                             cout<<"Thank you for playing the game"<<endl;
                                             cout<<"Invest wisely and have a good day"<<endl;
-                                            Gamebgn = false;
+                                            Gamebgn=false;
                                         }
                                     }
                                     else{
                                         cout<<"Sorry wrong answer"<<endl;
+                                        cout<<"The correct answer was Germany. "<<endl;
                                         cout<<"You win $100,000"<<endl;
                                         cout<<"Thank you for playing the game"<<endl;
                                         cout<<"Invest wisely and have a good day"<<endl;
-                                        Gamebgn = false;
+                                        Gamebgn=false;
                                     }
                                 }else{
                                     cout<<"Sorry wrong answer"<<endl;
+                                    cout<<"The correct answer was Great Britain."<<endl;
                                     cout<<"You win $75,000"<<endl;
                                     cout<<"Thank you for playing the game"<<endl;
                                     cout<<"Invest wisely and have a good day"<<endl;
-                                    Gamebgn = false;
+                                    Gamebgn=false;
                                 }
                             }else{
                                 cout<<"Sorry wrong answer"<<endl;
+                                cout<<"The correct answer was cricket."<<endl;
                                 cout<<"You win $50,000"<<endl;
                                 cout<<"Thank you for playing the game"<<endl;
                                 cout<<"Invest wisely and have a good day"<<endl;
-                                Gamebgn = false;
+                                Gamebgn=false;
                             }
                         }else{
                             cout<<"Sorry wrong answer"<<endl;
+                            cout<<"The correct answer was Albert Einstein."<<endl;
                             cout<<"You win $25,000"<<endl;
                             cout<<"Thank you for playing the game"<<endl;
                             cout<<"Invest wisely and have a good day"<<endl;
-                            Gamebgn = false;
+                            Gamebgn=false;
                         }
                     }else{
                         cout<<"Sorry wrong answer"<<endl;
+                        cout<<"The correct answer was New England Patriots "<<endl;
                         cout<<"You win $10,000"<<endl;
                         cout<<"Thank you for playing the game"<<endl;
                         cout<<"Invest wisely and have a good day"<<endl;
-                        Gamebgn = false;
+                        Gamebgn=false;
                     }
                 }else{
                     cout<<"Sorry wrong answer"<<endl;
+                    cout<<"The correct answer was Canada"<<endl;
                     cout<<"You win $2500"<<endl;
                     cout<<"Thank you for playing the game"<<endl;
                     cout<<"Invest wisely and have a good day"<<endl;
-                    Gamebgn = false;
+                    Gamebgn=false;
                 }
             }else{
                 cout<<"Sorry wrong answer"<<endl;
+                cout<<"The correct answer was Windows."<<endl;
                 cout<<"You win $1000"<<endl;
                 cout<<"Thank you for playing the game"<<endl;
                 cout<<"Invest wisely and have a good day"<<endl;
-                Gamebgn = false;
+                Gamebgn=false;
             }
-        }else{
-            cout<<"Sorry wrong answer"<<endl;
+    }else{
+            cout<<"Sorry wrong answer. "<<endl;
+            cout<<"The correct answer was Bjarne Stroustrup. "<<endl;
             cout<<"Thank you for playing the game"<<endl;
-            Gamebgn = false;
+            Gamebgn=false;        
         }
     }    
-    
-    
-    
-   return 0;
-}
+
+
+
+       return 0;
+    }
 
