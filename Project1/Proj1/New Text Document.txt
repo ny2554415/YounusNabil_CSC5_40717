@@ -12,14 +12,14 @@ Gates
 Doors
 Macs
 
-3 The country which ranks seocnd in terms of land area is?
+3 The country which ranks second in terms of land area is?
 Canada
 India 
 China 
 United States of America
 
 4 Who won the Super Bowl XLIX?
-Atlanta Seahawks
+Seattle Seahawks
 New England Patriots
 Miami Heat
 La Kings
@@ -61,3 +61,15 @@ New New Boston
 New London
 
 100-250-1000-2500-10000-25000-100000-250000-500000-1000000
+
+
+
+
+
+
+
+
+
+
+
+
