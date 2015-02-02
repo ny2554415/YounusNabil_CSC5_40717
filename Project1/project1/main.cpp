@@ -26,6 +26,8 @@ int main(int argc, char** argv) {
     char choiceD='D';//choice D 
     int mChoice;//Menu choice
     string name;//name of contestant
+    ifstream input;
+    string filedt;
    
     
     
@@ -72,6 +74,11 @@ int main(int argc, char** argv) {
         case 2:
             cout<<" RULES "<<endl;
             ///enter a file of Rules here
+            input.open("GameRules.txt");
+            
+            cout<<" RULES "<<endl;
+            
+            input.close();
             
             Gamebgn=true;
             break;
