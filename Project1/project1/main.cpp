@@ -26,9 +26,8 @@ int main(int argc, char** argv) {
     char choiceD='D';//choice D 
     int mChoice;//Menu choice
     string name;//name of contestant
-    ifstream input;
-    string filedt;
-   
+    
+    
     
     
     bool Gamebgn = false;//starting game with while
@@ -73,14 +72,15 @@ int main(int argc, char** argv) {
             break;
         case 2:
             cout<<" RULES "<<endl;
-            ///enter a file of Rules here
-            input.open("GameRules.txt");
-            
-            cout<<" RULES "<<endl;
-            
-            input.close();
-            
-            Gamebgn=true;
+            cout<<"This game is similar to Who wants to be a Millionaire.";
+            cout<<"A question and four options will be displayed.";
+            cout<<"Only of of them is the correct answer.";
+            cout<<"You have to enter the option you believe is correct.";
+            cout<<"A correct answer will move you to the next question while a wrong answer will end the game.";
+            cout<<"Good Luck, The game will now begin"<<endl;
+            cout<<endl;
+
+            Gamebgn = true;//used to start game
             break;
         case 3:    
             cout<<"You have chosen to quit"<<endl;
@@ -280,6 +280,7 @@ int main(int argc, char** argv) {
                 cout<<"Thank you for playing the game"<<endl;
                 cout<<"Invest wisely and have a good day"<<endl;
                 Gamebgn=false;
+                
             }
     }else{
             cout<<"Sorry wrong answer. "<<endl;
