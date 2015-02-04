@@ -1,9 +1,10 @@
 /* 
  * File:   main.cpp
- * Author: Nabil
- * Purpose:
- * Created on February 3, 2015, 10:30 AM
+ * Author: rcc
+ *
+ * Created on February 4, 2015, 8:57 AM
  */
+
 //System Libraries
 #include <iostream>
 #include <cstdlib>
@@ -19,15 +20,16 @@ void filAray(int [],int);
 void prntAry(const int [],int,int);
 void swap(int &,int &);//With xor's
 int  minLst(int,int [],int);//Find minimum in the list
+int  maxLst(int,int [],int);//Find maximum in the list
 void selSort(int [],int);//With a swap function
-void selcSrt(int [],int);//Without functions
+void selSrtB(int [],int);//Without functions
 
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Seed the random number generator
     srand(static_cast<unsigned int>(time(0)));
     //Declare variables and arrays
-    const int ROW=100;
+    const int ROW=100000;
     int pFilRow=100,perLine=10;
     int array[ROW]={};
     //Fill the Arrays
@@ -35,7 +37,7 @@ int main(int argc, char** argv) {
     //Print the Arrays
     prntAry(array,pFilRow,perLine);
     //Sort using Selection Sort
-    selcSrt(array,pFilRow);
+    selSrtB(array,pFilRow);
     //selSort(array,pFilRow);
     //Print the sorted array
     prntAry(array,pFilRow,perLine);
@@ -43,31 +45,42 @@ int main(int argc, char** argv) {
     exit(0);
 }
 
-void selcSrt(int a[],int n){
+void selSrtB(int a[],int n){
     //Swap as we go down the list
-    for(int i=0;i<n-1;i++){
+    for(int i=0,j=n-1;i<j;i++,j--){
         //Declare and set the minimum
-        int min=a[i],indx=i;
+        int min=a[i],indmn=i, indmx=i,max=min;
         //Loop and find the minimum in the list
-        for(int j=i+1;j<n;j++){
-            if(a[j]<min){
-                min=a[j];
-                indx=j;
+        for(int k=i+1;k<j;k++){
+            if(a[k]<min){
+                min=a[k];
+                indmn=k;
+            }
+            if(a[k]>max){
+                max=a[k];
+                indmx=k;
             }
         }
-        if(i!=indx){
+        if(i!=indmn){
             int temp=a[i];
-            a[i]=a[indx];
-            a[indx]=temp;
+            a[i]=a[indmn];
+            a[indmn]=temp;
+        }
+        if(j!=indmx){
+            int temp=a[j];
+            a[j]=a[indmx];
+            a[indmx]=temp;
         }
     }
 }
 
 void selSort(int a[],int n){
     //Swap as we go down the list
-    for(int i=0;i<n-1;i++){
-        int indx=minLst(i,a,n);
+    for(int i=0,j=n-1;i<j;i++,j--){
+        int indx=minLst(i,a,j+1);
         if(i!=indx)swap(a[i],a[indx]);
+        indx=maxLst(i,a,j+1);
+        if(j!=indx)swap(a[j],a[indx]);
     }
 }
 
@@ -78,6 +91,19 @@ int  minLst(int pos,int a[],int n){
     for(int i=pos+1;i<n;i++){
         if(a[i]<min){
             min=a[i];
+            indx=i;
+        }
+    }
+    return indx;
+}
+
+int  maxLst(int pos,int a[],int n){
+    //Declare and set the minimum
+    int max=a[pos],indx=pos;
+    //Loop and find the minimum in the list
+    for(int i=pos+1;i<n;i++){
+        if(a[i]>max){
+            max=a[i];
             indx=i;
         }
     }
