@@ -1,6 +1,6 @@
 /* 
  * File:   main.cpp
- * Author: Nabil
+ * Author: 
  * Purpose: Game of life
  * Created on February 4, 2015, 10:57 AM
  */
@@ -11,75 +11,103 @@ using namespace std;
 
 //User Libraries
 
-//Global constants
+//Global Constants
 const int COL=30;
-//Function prototypes
+
+//Function Prototypes
 void filAray(char [][COL],int,char);
 void prntAry(char [][COL],int);
+void prntMap(char [][COL],int,char);
 void inject(char [][COL],int,int,char);
 void pause(int);
-void gnrashn(char [][COL],int,char,char);
-int cntNbor(char [][COL],int,char,int,int);
+void gnrashn(char [][COL],char[][COL],int,char,char);
+int  cntNbor(char [][COL],int,char,int,int);
 
-//Execution begins here!
+//Execution Begins Here!
 int main(int argc, char** argv) {
-    //Declare 2 dimensional character array
+    //Declare the 2 Dimensional character array
     const int ROW=10;
-    char array[ROW][COL];
-    int nGen=10;
-    //Fill array
+    char array[ROW][COL]={};
+    char brray[ROW][COL]={};
+    int nGen=20;
+    //Fill the array
     filAray(array,ROW,'*');
+    filAray(brray,ROW,'*');
     //Print the array without the glider
     prntAry(array,ROW);
     //Inject the glider
-    inject(array,4,13,'X');
+    inject(array,1,10,'X');
     //Print the array with the glider
     prntAry(array,ROW);
-    //game of life
+    pause(1);
+    //Game of life for generations stipulated
     for(int gen=1;gen<=nGen;gen++){
-        gnrashn(array,ROW,'*','X');
-        pause(5);
+        //prntMap(array,ROW,'X');
+        cout<<"Gen "<<gen<<endl;
+        if(gen%2){
+            gnrashn(array,brray,ROW,'*','X');
+            prntAry(brray,ROW);
+        }else{
+            gnrashn(brray,array,ROW,'*','X');
+            prntAry(array,ROW);
+        }
+        //prntMap(array,ROW,'X');
+        pause(1);
     }
-    
+    //Exit the program
     return 0;
 }
-void gnrashn(char a[][COL],int ROW,char d,char nd){
+
+void gnrashn(char a[][COL],char b[][COL],int ROW,char d,char nd){
     for(int r=1;r<ROW-1;r++){
         for(int c=1;c<COL-1;c++){
-            int nBr=cntNbor(a,ROW,d,r,c);
-            if(a[r][c]!=d&&nBr<=1)a[r][c]=d;
-            if(a[r][c]!=d&&nBr>=4)a[r][c]=d;
-            if(a[r][c]==d&&nBr==3)a[r][c]=nd;
+            int nBr=cntNbor(a,ROW,nd,r,c);
+            if(a[r][c]==nd&&nBr<=1)b[r][c]=d;
+            else if(a[r][c]==nd&&(nBr==2||nBr==3))b[r][c]=nd;
+            else if(a[r][c]==nd&&nBr>=4)b[r][c]=d;
+            else if(a[r][c]==d&&nBr==3)b[r][c]=nd;
+            else b[r][c]=a[r][c];
         }
     }
 }
 
-int cntNbor(char a[][COL],int ROW,char d,int r,int c){
-    //count neighbors
+void prntMap(char a[][COL],int ROW,char nd){
+    cout<<endl;
+    for(int r=1;r<ROW-1;r++){
+        cout<<" ";
+        for(int c=1;c<COL-1;c++){
+            int nBr=cntNbor(a,ROW,nd,r,c);
+            cout<<nBr;
+        }
+        cout<<endl;
+    }
+}
+
+int  cntNbor(char a[][COL],int ROW,char d,int r,int c){
+    //Count your neighbors
     int count=0;
-    //3 in top
-    if(a[r-1][c-1]!=d)count++;
-    if(a[r-1][c]!=d)count++;
-    if(a[r-1][c+1]!=d)count++;
-    //2 in middle
-    if(a[r][c-1]!=d)count++;
-    if(a[r][c+1]!=d)count++;
-    //3 on bottom
-    if(a[r+1][c-1]!=d)count++;
-    if(a[r+1][c]!=d)count++;
-    if(a[r+1][c+1]!=d)count++;
-    return 0;
+    //3 on Top
+    if(a[r-1][c-1]== d)count++;
+    if(a[r-1][c]  == d)count++;
+    if(a[r-1][c+1]== d)count++;
+    //2 in Middle
+    if(a[r][c-1]  == d)count++;
+    if(a[r][c+1]  == d)count++;
+    //3 on Bottom
+    if(a[r+1][c-1]== d)count++;
+    if(a[r+1][c]  == d)count++;
+    if(a[r+1][c+1]== d)count++;
+    //Return the count
+    return count;
 }
 
 void pause(int secs){
     //Start the timer
-    int end;
     int strt=static_cast<unsigned int>(time(0));
+    int end;
     do{
         end=static_cast<unsigned int>(time(0));
-        
     }while(secs>(end-strt));
-    
 }
 
 void inject(char a[][COL],int pRow,int pCol,char c){
@@ -88,23 +116,33 @@ void inject(char a[][COL],int pRow,int pCol,char c){
     a[pRow+2][pCol+0]=c;
     a[pRow+2][pCol+1]=c;
     a[pRow+2][pCol+2]=c;
-    
 }
 
 void prntAry(char a[][COL],int ROW){
     cout<<endl;
-    for (int r=0;r<ROW;r++){
+    for(int r=0;r<ROW;r++){
         for(int c=0;c<COL;c++){
-           a[r][c]; 
+            cout<<a[r][c];
         }
         cout<<endl;
     }
+    cout<<endl;
 }
+
 void filAray(char a[][COL],int ROW,char d){
-    for (int r=0;r<ROW;r++){
+    for(int r=0;r<ROW;r++){
         for(int c=0;c<COL;c++){
-           a[r][d]; 
+            if(r==0){
+                a[r][c]=c%10+48;
+            }else if(r==(ROW-1)){
+                a[r][c]=c%10+48;
+            }else if(c==0){
+                a[r][c]=r%10+48;
+            }else if(c==(COL-1)){
+                a[r][c]=r%10+48;
+            }else{
+                a[r][c]=d;
+            }
         }
     }
-  
 }
