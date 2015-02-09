@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=project1_v2
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/project1_v2
+CND_ARTIFACT_NAME_Debug=adtarrayindexed
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/adtarrayindexed
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=project1v2.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/project1v2.tar
+CND_PACKAGE_NAME_Debug=adtarrayindexed.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/adtarrayindexed.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=project1_v2
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/project1_v2
+CND_ARTIFACT_NAME_Release=adtarrayindexed
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/adtarrayindexed
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=project1v2.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/project1v2.tar
+CND_PACKAGE_NAME_Release=adtarrayindexed.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/adtarrayindexed.tar
 #
 # include compiler specific variables
 #
