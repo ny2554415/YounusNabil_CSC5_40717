@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 //User Libraries
 
@@ -19,10 +20,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
     //Declare variables
-    string questions[10];
-    int crrct=0,wrong=0;
+    string quest[10];
     const int SIZE=20;
-    const char test[SIZE]={'a','d','b','b','c','b','a','b','c','d',
+    const char test[SIZE]={'b','d','b','b','c','b','a','b','c','d',
                            'a','c','d','b','d','c','c','a','d','b'};
     int mChoice;//Menu choice
     string name;//name of contestant
@@ -31,19 +31,23 @@ int main(int argc, char** argv) {
     
     //Questions to be asked
     
-    questions[1]="1) Who designed the programming language C++?"
-                 "a.Dr. Mark E. Lehr  b.Bjarne "
+    quest[0]="1) Who designed the programming language C++?\n"
+                 "a.Dr. Mark E. Lehr  b.Bjarne Stroustrup\n"
                  "c.Bill Gates        c.Steve Jobs";
     
-    questions[2]="2) What is Bill Gates most famously known for?";
-    questions[3]="3) The country which ranks second in terms of land area is?";
-    questions[4]="4) Who won the Super Bowl XLIX?";
-    questions[5]="5) Who is most famously know as the father of Modern Physics?";
-    questions[6]="6) Which of these insects is also a sport?";
-    questions[7]="7) Where is the car company Jaguar originated?";
-    questions[8]="8) Where is the Berlin Wall located";
-    questions[9]="9) The largest coffee growing country in the world is?";
-    questions[10]="10)The earlier name of New York city was?";
+    quest[1]="2) What is Bill Gates most famously known for?\n"
+                 "a.Gates       b.Doors\n"
+                 "c.Windows     d.Macs";
+    quest[2]="3) The country which ranks second in terms of land area is?\n"
+                 "a.Canada      b.China\n"
+                 "c.Russia      d.United States of America";
+    quest[3]="4) Who won the Super Bowl XLIX?";
+    quest[4]="5) Who is most famously know as the father of Modern Physics?";
+    quest[5]="6) Which of these insects is also a sport?";
+    quest[6]="7) Where is the car company Jaguar originated?";
+    quest[7]="8) Where is the Berlin Wall located";
+    quest[8]="9) The largest coffee growing country in the world is?";
+    quest[9]="10)The earlier name of New York city was?";
     
     
     //Menu for Game
@@ -92,11 +96,22 @@ int main(int argc, char** argv) {
         }
     if (Gamebgn=true){ //game starts here
         char answer[SIZE];
-       
-        
+        //Loop Questions and answer
+        for(int i=0;i<10;i++){
+            cout<<""<<quest[i]<<" ";
+            cin>>answer[i];
+            while((answer[i]!='a')&&(answer[i]!='b')&&
+                    (answer[i]!='c')&&(answer[i]!='d')){
+                    cout<<"Incorrect input, please choose a,b,c or d"<<endl;
+                    cin>>answer[i];
+            if(!answer[i]==test[i])
+                cout<<"Thank you "<<endl;
+                    break;
+                
+           
 
 
-    }
+            }  }}
        return 0;
     }
 
