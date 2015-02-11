@@ -5,35 +5,57 @@
  * Created on February 1, 2015, 2:10 PM
  */
 //System Libraries
-#include <iostream>
-#include <fstream>
-#include <ctime>
-#include <cstdlib>
+#include <iostream>//Keyboard/Monitor I/O
+#include <fstream>////File I/O
+#include <ctime>//Time functions
+#include <cstdlib>//Random rand(),srand()
 using namespace std;
 //User Libraries
 
 //Function Prototypes
-void qualifier();
-void game();
+void qualifier();// for the qualifying game
+void game();//for the main game
+void mMenu();//for Main menu
+
+
 //Global Constants
 
 //Execution begins here!
 
 int main(int argc, char** argv) {
+    const int SIZE=2;
+    const int course[SIZE]={'40717','40718'};
+    int input;
+    cout<<"input "<<endl;
+    cin>>input;
+    if(!(input==course[0])&&(input==course[1])){
+        cout<<"sorry you"<<endl;
+    }else{
+    //Game starts by displaying menu using Menu function
+    mMenu();
+    }
+    //Exit stage right!
+    return 0;
+    }
+
+
+void mMenu(){
     //Declare variables
-    
     int mChoice;//Menu choice
     string name;//name of contestant
-    ifstream infile;
-    string input;
-    bool Gamebgn = false;//starting game with while
+    ifstream infile;//input from file
+    string input;//input from file
     char choiceY='Y';//choice to play game
-    char doyou;
+    char doyou;//choice to play game after rules
     
-    //Menu for Game
-    
-    cout<<"Hello "<<name<<endl;
-    cout<<"Welcome to WHO WANTS TO BE A MILLIONARE"<<endl;
+    //Menu is displayed for Game
+    //Option for user to start game ,check rules or quit
+    cout<<"          Hello and "<<name<<endl;
+    cout<<"           Welcome "<<endl;
+    cout<<"             to"<<endl;
+    cout<<"*-----------------------------*"<<endl;
+    cout<<"*WHO WANTS TO BE A MILLIONAIRE*"<<endl;
+    cout<<"*-----------------------------*"<<endl;
     cout<<"Main Menu"<<endl;
     cout<<"Choose what you wish to do"<<endl;
     cout<<"I will advise you to check the rules first"<<endl;
@@ -45,7 +67,8 @@ int main(int argc, char** argv) {
     cin>>mChoice;
     cout<<"------------"<<endl;
     
-    //Switch and Output for menu
+    //Use Switch statement for Menu choices
+    //Switch and Output for Menu
     switch (mChoice){
     
         case 1:
@@ -57,11 +80,12 @@ int main(int argc, char** argv) {
          
             
             //ENTER THE QUALIFIER GAME HERE!!
-            qualifier();
+            qualifier();//leads to qualifying function
             break;
         case 2:
-            infile.open("GameRules.txt"); //opens file "RULES.txt"(will be placed in same destination as the cpp file
-
+            infile.open("GameRules.txt"); //opens the file containing rules
+            //file is placed within the project folder
+            //Use if function incase the file does not open
             if (infile) {
                 getline(infile, input); 
                 while (infile){
@@ -73,12 +97,18 @@ int main(int argc, char** argv) {
             else //else statement if GameRules.txt cannot be read
             {
             cout<<"An Error has occurred, cannot display file contents"<<endl; 
+            cout<<"Open file manually to learn the rules."<<endl;
             }
             
             cout<<"Do you wish to start playing?"<<endl;
             cout<<"Type Y for Yes, or anything else to quit"<<endl;
             cin>>doyou;
             if((toupper(doyou))==choiceY){
+                cout<<"You have chosen to play the game."<<endl;
+                cout<<"But wait this time there is a twist, to have a chance ";
+                cout<<"to play for the Million Dollars you will have "; 
+                cout<<"to prove your worth by playing a qualifier round."<<endl;
+                cout<<"--------------------------------------------------"<<endl;
                 qualifier();
             }
             break;
@@ -91,9 +121,8 @@ int main(int argc, char** argv) {
          default:
             cout<<"Invalid option "<<endl;        
         }
-    //Exit stage right!
-    return 0;
-    }
+}
+
 void game(){
     //Declare variables
     string name;//Hold name of player
@@ -102,6 +131,11 @@ void game(){
     char choiceB='B';//choice B 
     char choiceC='C';//choice C 
     char choiceD='D';//choice D 
+    int reward;//for reward
+    ofstream output;//Declaring a file object
+    unsigned int totTim,begTim,endTim;
+    //Open the file
+    output.open("Report.dat");
     //the questions to be asked
     string question1="1) Who designed the programming language C++?";
     string question2="2) What is Bill Gates most famously known for?";
@@ -113,9 +147,11 @@ void game(){
     string question8="8) Where is the Berlin Wall located";
     string question9="9) The largest coffee growing country in the world is?";
     string question10="10)The earlier name of New York city was?";
+    begTim=static_cast<unsigned int>(time(0));
     // the questions
         cout<<"Enter your name ";
         cin>>name;
+        
         cout<<endl;
         cout<<"Your first question"<<endl;
         cout<<"-------------------"<<endl;
@@ -230,6 +266,7 @@ void game(){
                                                 cout<<"Congratulations "<<name<<", You have won 1 MILLION DOLLARS."<<endl;
                                                 cout<<"Thank you for playing the game, Enjoy your 1 million Dollars."<<endl;
                                                 cout<<"Invest wisely and have a good day"<<endl;
+                                                reward=1000000;
                                                 
                                             }
                                             else{
@@ -238,7 +275,7 @@ void game(){
                                                 cout<<"You win $500,000"<<endl;
                                                 cout<<"Thank you for playing the game"<<endl;
                                                 cout<<"Invest wisely and have a good day"<<endl;
-                                                
+                                                reward=500000;
                                             }
                                         }
                                         else{
@@ -247,7 +284,7 @@ void game(){
                                             cout<<"You win $250,000"<<endl;
                                             cout<<"Thank you for playing the game"<<endl;
                                             cout<<"Invest wisely and have a good day"<<endl;
-                                            
+                                            reward=250000;
                                         }
                                     }
                                     else{
@@ -256,7 +293,7 @@ void game(){
                                         cout<<"You win $100,000"<<endl;
                                         cout<<"Thank you for playing the game"<<endl;
                                         cout<<"Invest wisely and have a good day"<<endl;
-                                        
+                                        reward=100000;
                                     }
                                 }else{
                                     cout<<"Sorry wrong answer"<<endl;
@@ -264,7 +301,7 @@ void game(){
                                     cout<<"You win $75,000"<<endl;
                                     cout<<"Thank you for playing the game"<<endl;
                                     cout<<"Invest wisely and have a good day"<<endl;
-                                    
+                                    reward=75000;
                                 }
                             }else{
                                 cout<<"Sorry wrong answer"<<endl;
@@ -272,7 +309,7 @@ void game(){
                                 cout<<"You win $50,000"<<endl;
                                 cout<<"Thank you for playing the game"<<endl;
                                 cout<<"Invest wisely and have a good day"<<endl;
-                                
+                                reward=50000;
                             }
                         }else{
                             cout<<"Sorry wrong answer"<<endl;
@@ -280,7 +317,7 @@ void game(){
                             cout<<"You win $25,000"<<endl;
                             cout<<"Thank you for playing the game"<<endl;
                             cout<<"Invest wisely and have a good day"<<endl;
-                            
+                            reward=25000;
                         }
                     }else{
                         cout<<"Sorry wrong answer"<<endl;
@@ -288,7 +325,7 @@ void game(){
                         cout<<"You win $10,000"<<endl;
                         cout<<"Thank you for playing the game"<<endl;
                         cout<<"Invest wisely and have a good day"<<endl;
-                        
+                        reward=10000;
                     }
                 }else{
                     cout<<"Sorry wrong answer"<<endl;
@@ -296,7 +333,7 @@ void game(){
                     cout<<"You win $2500"<<endl;
                     cout<<"Thank you for playing the game"<<endl;
                     cout<<"Invest wisely and have a good day"<<endl;
-                    
+                    reward=2500;
                 }
             }else{
                 cout<<"Sorry wrong answer"<<endl;
@@ -304,15 +341,26 @@ void game(){
                 cout<<"You win $1000"<<endl;
                 cout<<"Thank you for playing the game"<<endl;
                 cout<<"Invest wisely and have a good day"<<endl;
-                
+                reward=1000;
                 
             }
     }else{
             cout<<"Sorry wrong answer. "<<endl;
             cout<<"The correct answer was Bjarne Stroustrup. "<<endl;
             cout<<"Thank you for playing the game"<<endl;
-                
+            reward=0;    
         }
+        endTim=static_cast<unsigned int>(time(0));
+        //Output results to file
+            output<<"Player Name: "<<name<<endl;
+            output<<"Reward:    : $"<<reward<<endl;
+            output<<"Time taken : "<<endTim-begTim<<" seconds"<<endl;
+              
+            //Close the stream
+            output.close();
+            
+        
+       
     }    
 
 
@@ -326,6 +374,11 @@ void qualifier(){
     char answr[SIZE];
     unsigned int totTim,begTim,endTim;
     char enter;
+    ifstream infile;//input from file
+    string input;//input from file
+    ofstream output;//Declaring a file object
+    //Open the file
+    
     //the questions
     quests[0]="1) Answer 123+321\n"
               "a.333    c.450\n"
@@ -333,7 +386,7 @@ void qualifier(){
     quests[1]="2) What is known as the study of fossils?\n"
               "a.Fossilogy  c.Palaeontology\n"
               "b.Astronomy  d.Archaeology";
-    quests[2]="3) Which of the following data types is penalised with a direct failure in our class?\n"
+    quests[2]="3) Which of the following data types is penalized with a direct failure in our class?\n"
               "a.double  c.int\n"
               "b.float   d.const\n";
     quests[3]="4) Which French term means the front of a building?\n"
@@ -345,15 +398,21 @@ void qualifier(){
     quests[5]="6) Which of the following cannot be used to measure speed. \n"
               "a.km/km  c.kmph\n"
               "b.m/s    d.mph\n";
-    //Prompt input to start
+    //Display qualifier rules which are different than normal
     cout<<"THE QUALIFIERS"<<endl;
-    cout<<"You have 120 seconds to answer all the questions."<<endl;
-    cout<<"Enter character to continue ";
+    cout<<"Qualifier Rules:\n"
+        "1) You will have 6 questions followed one by another.\n"
+        "2) You will have 60 seconds to answer all the questions,\n"
+        "   if you fail to do so you will fail.\n"
+        "3) You need to get at least 4 correct answers to qualify for the Main Event.\n"
+         "---------------------------------------------------------------------------"<<endl;
+    //Prompt input to start
+    cout<<"Enter any character to begin qualifier round ";
     cin>>enter;
     cout<<"Qualifier round begins, Good Luck"<<endl;
     cout<<"-------------------------------- "<<endl;
     //Time for the Questions and answers
-    totTim=50;
+    totTim=60;
     begTim=static_cast<unsigned int>(time(0));
     for(int i=0;i<SIZE;i++){
         
@@ -362,7 +421,7 @@ void qualifier(){
         //Validate if input is valid
         while((answr[i]!='a')&&(answr[i]!='b')&&
               (answr[i]!='c')&&(answr[i]!='d')){
-            cout<<"Incorrect input, please choose a,b,c or d";
+            cout<<"Incorrect input, please choose a,b,c or d ";
             cin>>answr[i];
         }    
     }
@@ -374,23 +433,26 @@ void qualifier(){
         }else wrong++;
     }
     //Output results
+    //if at least 4 correct then proceed to game
     if(totTim>endTim-begTim){
-        if(crrct>=6){
+        if(crrct>=4){
             cout<<"You had "<<crrct<<" correct answers"<<endl;
             cout<<"Congratulations you have qualified for the Main Event"<<endl;
             cout<<"The game will now begin, I wish you luck"<<endl;
             game();
-        //enter game function
-        }else{ cout<<"You have failed!"<<endl;
-            cout<<"Total Amount Correct: "<<crrct<<endl;
-            cout<<"You had "<<wrong<<" wrong answers"<<endl;
-
+            
+        //if less than 4 correct answers then the following
+        }else{ cout<<"You have failed to qualify!"<<endl;            
+            cout<<"You had "<<wrong<<" incorrect answers"<<endl;
         }
+        //If too much time taken then the following
     }else{
         cout<<"Sorry, you have been disqualified for taking too much time"<<endl;
-        cout<<"Time allowed = "<<totTim<<endl;
-        cout<<"Your time = "<<endTim-begTim<<endl;
+        cout<<"Time allowed = "<<totTim<<" seconds"<<endl;
+        cout<<"Your time = "<<endTim-begTim<<" seconds"<<endl;
         cout<<"Thank you for playing, Have a good day. "<<endl;
         
+        
     } 
+    
 }
