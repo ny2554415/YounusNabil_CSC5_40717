@@ -1,0 +1,14 @@
+Qualifier Rules:
+1) You will have 6 questions followed one by another.
+2) You will have 90 seconds to answer all the questions,
+   if you fail to do so you will fail.
+3) You need to get atleast 4 correct answers to qualify for the Main Event.
+
+Main Event Rules:
+This game is similar to Who wants to be a Millionaire.
+A question and four options will be displayed.
+Only one of them is the correct answer.
+You have to enter the option you believe is correct.
+A correct answer will move you to the next question while a wrong answer will end the game.
+
+--------------------------------------------------------------
