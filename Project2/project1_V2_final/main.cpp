@@ -23,17 +23,10 @@ void mMenu();//for Main menu
 //Execution begins here!
 
 int main(int argc, char** argv) {
-    const int SIZE=2;
-    const int course[SIZE]={'40717','40718'};
-    int input;
-    cout<<"input "<<endl;
-    cin>>input;
-    if(!(input==course[0])&&(input==course[1])){
-        cout<<"sorry you"<<endl;
-    }else{
+    
     //Game starts by displaying menu using Menu function
     mMenu();
-    }
+    
     //Exit stage right!
     return 0;
     }
@@ -73,7 +66,7 @@ void mMenu(){
     
         case 1:
             cout<<"You have chosen to play the game."<<endl;
-            cout<<"But wait this time there is a twist, to have a chance ";
+            cout<<"But to have a chance ";
             cout<<"to play for the Million Dollars you will have "; 
             cout<<"to prove your worth by playing a qualifier round."<<endl;
             cout<<"--------------------------------------------------"<<endl;
@@ -374,11 +367,10 @@ void qualifier(){
     char answr[SIZE];
     unsigned int totTim,begTim,endTim;
     char enter;
-    ifstream infile;//input from file
     string input;//input from file
     ofstream output;//Declaring a file object
     //Open the file
-    
+    output.open("QualifierReport.dat");
     //the questions
     quests[0]="1) Answer 123+321\n"
               "a.333    c.450\n"
@@ -439,11 +431,17 @@ void qualifier(){
             cout<<"You had "<<crrct<<" correct answers"<<endl;
             cout<<"Congratulations you have qualified for the Main Event"<<endl;
             cout<<"The game will now begin, I wish you luck"<<endl;
+            output<<"Correct answers: "<<crrct<<endl;
+            output<<"Incorrect answers "<<wrong<<endl;
+            output<<"Time taken : "<<endTim-begTim<<" seconds"<<endl;
             game();
             
         //if less than 4 correct answers then the following
         }else{ cout<<"You have failed to qualify!"<<endl;            
             cout<<"You had "<<wrong<<" incorrect answers"<<endl;
+            output<<"Correct answers: "<<crrct<<endl;
+            output<<"Incorrect answers "<<wrong<<endl;
+            output<<"Time taken : "<<endTim-begTim<<" seconds"<<endl;
         }
         //If too much time taken then the following
     }else{
@@ -451,8 +449,13 @@ void qualifier(){
         cout<<"Time allowed = "<<totTim<<" seconds"<<endl;
         cout<<"Your time = "<<endTim-begTim<<" seconds"<<endl;
         cout<<"Thank you for playing, Have a good day. "<<endl;
-        
-        
+        //Output results to file
+        output<<"Correct answers: "<<crrct<<endl;
+        output<<"Incorrect answers "<<wrong<<endl;
+        output<<"Time taken : "<<endTim-begTim<<" seconds"<<endl;
+              
+                           
     } 
-    
+    //Close the stream
+    output.close(); 
 }
